@@ -1,5 +1,5 @@
 import os
-os.makedirs("test/inner/folder")
+os.makedirs("tes/inner/folder")
 
 import os
 print(os.listdir("."))
@@ -11,5 +11,5 @@ print(files)
 
 import shutil
 
-shutil.copy("sample.txt", "test/sample.txt")
-shutil.move("sample.txt", "test/sample_moved.txt")
+shutil.copy("sample.txt", "tes/sample.txt")
+shutil.move("sample.txt", "tes/sample_moved.txt")

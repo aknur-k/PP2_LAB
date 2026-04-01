@@ -38,7 +38,7 @@ print(list(zip(a, b)))
 # [(1, 'a'), (2, 'b'), (3, 'c')]
 
 
-# sorted()
+# sorted()  
 nums = [4, 1, 3]
 print(sorted(nums))          # [1, 3, 4]
 print(sorted(nums, reverse=True))  # [4, 3, 1]

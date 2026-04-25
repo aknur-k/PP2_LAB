@@ -31,8 +31,8 @@ class Clock:
         minutes, seconds = self.get_time()
 
         
-        sec_angle = seconds * 6 - 30
-        min_angle = minutes * 6 + seconds * 0.1 - 30
+        sec_angle = seconds * 6 - 270
+        min_angle = minutes * 6 + seconds * 0.1 - 270
 
         self.draw_hand(self.minute_hand, min_angle)
         self.draw_hand(self.second_hand, sec_angle)

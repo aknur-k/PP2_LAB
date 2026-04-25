@@ -15,7 +15,6 @@ running = True
 while running:
     screen.fill((20, 20, 20))
 
-    # 🎵 текст
     track = font.render(
         f"Track: {player.current_track()}",
         True,
@@ -30,7 +29,6 @@ while running:
     )
     screen.blit(controls, (20, 80))
 
-    # 🎚️ ПРОГРЕСС-БАР
     progress = player.get_progress()
     bar_x, bar_y = 20, 150
     bar_width, bar_height = 600, 20
@@ -38,7 +36,7 @@ while running:
     pygame.draw.rect(screen, (50, 50, 50),
                      (bar_x, bar_y, bar_width, bar_height))
 
-    fill_width = min(progress * 10, bar_width)  # скорость заполнения
+    fill_width = min(progress * 10, bar_width)
     pygame.draw.rect(screen, (255, 105, 180),
                      (bar_x, bar_y, fill_width, bar_height))
 

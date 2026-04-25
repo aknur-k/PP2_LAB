@@ -30,6 +30,6 @@ while running:
     mickey.update()
 
     pygame.display.update()
-    clock.tick(1)
+    clock.tick(60)
 
 pygame.quit()

@@ -22,13 +22,13 @@ while running:
     keys = pygame.key.get_pressed()
 
     if keys[pygame.K_LEFT]:
-        ball.move(-20, 0)
+        ball.move(-10, 0)
     if keys[pygame.K_RIGHT]:
-        ball.move(20, 0)
+        ball.move(10, 0)
     if keys[pygame.K_UP]:
-        ball.move(0, -20)
+        ball.move(0, -10)
     if keys[pygame.K_DOWN]:
-        ball.move(0, 20)
+        ball.move(0, 10)
 
     ball.draw(screen)
 

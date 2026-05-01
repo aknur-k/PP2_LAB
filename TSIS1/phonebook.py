@@ -5,7 +5,7 @@ import csv
 conn = get_connection()
 cur = conn.cursor()
 
-# ---------------- ADD CONTACT ----------------
+
 def add_contact():
     name = input("Name: ")
     email = input("Email: ")
@@ -20,7 +20,6 @@ def add_contact():
     print("Contact added")
 
 
-# ---------------- SHOW ALL ----------------
 def show_all_contacts():
     cur.execute("""
         SELECT c.id, c.name, c.email, c.birthday, g.name
@@ -30,7 +29,6 @@ def show_all_contacts():
     print(cur.fetchall())
 
 
-# ---------------- SEARCH ----------------
 def search_contacts():
     q = input("Search: ")
     cur.execute("SELECT * FROM search_contacts(%s)", (q,))
@@ -46,7 +44,6 @@ def search_by_email():
     print(cur.fetchall())
 
 
-# ---------------- FILTER BY GROUP ----------------
 def filter_by_group():
     g = input("Group: ")
 
@@ -60,7 +57,6 @@ def filter_by_group():
     print(cur.fetchall())
 
 
-# ---------------- SORT ----------------
 def sort_contacts():
     field = input("Sort by (name/birthday/id): ")
 
@@ -74,7 +70,6 @@ def sort_contacts():
     print(cur.fetchall())
 
 
-# ---------------- PAGINATION ----------------
 def pagination():
     page = 0
     size = 5
@@ -99,7 +94,6 @@ def pagination():
             break
 
 
-# ---------------- ADD PHONE ----------------
 def add_phone_to_contact():
     name = input("Contact name: ")
     phone = input("Phone: ")
@@ -109,7 +103,6 @@ def add_phone_to_contact():
     conn.commit()
 
 
-# ---------------- MOVE TO GROUP ----------------
 def move_contact_to_group():
     name = input("Contact name: ")
     group = input("Group name: ")
@@ -118,7 +111,6 @@ def move_contact_to_group():
     conn.commit()
 
 
-# ---------------- CSV IMPORT (FIXED) ----------------
 def import_csv():
     with open("contacts.csv", "r") as file:
         reader = csv.DictReader(file)
@@ -131,7 +123,6 @@ def import_csv():
             phone = row["phone"]
             phone_type = row["type"]
 
-            # group
             cur.execute("SELECT id FROM groups WHERE name=%s", (group_name,))
             g = cur.fetchone()
 
@@ -141,7 +132,6 @@ def import_csv():
                 cur.execute("INSERT INTO groups(name) VALUES (%s) RETURNING id", (group_name,))
                 group_id = cur.fetchone()[0]
 
-            # contact
             cur.execute("""
                 INSERT INTO contacts(name, email, birthday, group_id)
                 VALUES (%s, %s, %s, %s)
@@ -150,7 +140,6 @@ def import_csv():
 
             contact_id = cur.fetchone()[0]
 
-            # phone
             cur.execute("""
                 INSERT INTO phones(contact_id, phone, type)
                 VALUES (%s, %s, %s)
@@ -160,7 +149,6 @@ def import_csv():
     print("CSV imported")
 
 
-# ---------------- JSON EXPORT ----------------
 def export_json():
     cur.execute("""
         SELECT c.id, c.name, c.email, c.birthday, g.name
@@ -176,7 +164,6 @@ def export_json():
     print("Exported")
 
 
-# ---------------- JSON IMPORT ----------------
 def import_json():
     with open("contacts.json", "r") as f:
         data = json.load(f)
@@ -203,7 +190,6 @@ def import_json():
     print("JSON imported")
 
 
-# ---------------- MENU ----------------
 def menu():
     while True:
         print("""

@@ -4,7 +4,7 @@ pygame.init()
 
 WIDTH, HEIGHT = 800, 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-screen.fill((255,255,255))
+screen.fill((0, 0, 0))
 
 clock = pygame.time.Clock()
 
@@ -37,6 +37,8 @@ while running:
                 color = (0,255,0)
             elif event.key == pygame.K_3:
                 color = (0,0,255)
+            elif event.key == pygame.K_4:
+                color = (255, 255, 255)
 
         if event.type == pygame.MOUSEBUTTONDOWN:
             drawing = True

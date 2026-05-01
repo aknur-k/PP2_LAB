@@ -1,5 +1,15 @@
 {
+<<<<<<< HEAD
     "sound": true,
     "car_color": "blue",
     "difficulty": "normal"
+=======
+    "snake_color": [
+        255,
+        239,
+        150
+    ],
+    "grid": true,
+    "sound": true
+>>>>>>> dd88862be4b5b970ae45419be3d8608bd5b012a6
 }
